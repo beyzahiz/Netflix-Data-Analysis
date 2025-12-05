@@ -35,5 +35,10 @@ print(turler.value_counts().head(10))
 
 on = turler.value_counts().head(10)
 on.plot(kind="bar")
-plt.title("Netflix'te En Popüler 10 Tür")
-plt.show()
+#plt.title("Netflix'te En Popüler 10 Tür")
+#plt.show()
+
+ulke = df["country"]
+ulke = ulke.str.split(",")
+ulke = ulke.explode()
+print(ulke.value_counts().head(10))
