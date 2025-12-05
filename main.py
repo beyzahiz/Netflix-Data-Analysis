@@ -25,6 +25,11 @@ df["type"].value_counts()
 
 fdsayisi= df["type"].value_counts()
 fdsayisi.plot(kind="bar")
-plt.title("Film vs TV Show Sayıları")
-plt.show()
+#plt.title("Film vs TV Show Sayıları")
+#plt.show()
+
+turler = df["listed_in"]
+turler = turler.str.split(",") #virgül ile türleri ayırdım
+turler = turler.explode() #alt alta yazıldı
+print(turler.value_counts().head(10))
 
