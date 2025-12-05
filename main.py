@@ -45,8 +45,17 @@ ulke = ulke.str.strip()  #baştaki ve sondaki boşlukları temizledim
 print(ulke.value_counts().head(10))
 
 ulkeOn = ulke.value_counts().head(10)
-plt.figure(figsize=(10,5)) #yeni figure oluşturur eskiyi temizler
+#plt.figure(figsize=(10,5)) #yeni figure oluşturur eskiyi temizler
 ulkeOn.plot(kind="bar")
-plt.title("Netflix'te En Çok İçerik Üreten 10 Ülke")
+#plt.title("Netflix'te En Çok İçerik Üreten 10 Ülke")
+#plt.show()
+
+#Yıllara göre içerik trendleri
+yillar = df["release_year"].value_counts().sort_index()
+plt.figure(figsize=(12,5))
+yillar.plot(kind="line")
+plt.title("Yıllara Göre Netflix İçerik Üretimi")
+plt.xlabel("Yıl")
+plt.ylabel("İçerik Sayısı")
 plt.show()
 
