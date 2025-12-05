@@ -41,4 +41,12 @@ on.plot(kind="bar")
 ulke = df["country"]
 ulke = ulke.str.split(",")
 ulke = ulke.explode()
+ulke = ulke.str.strip()  #baştaki ve sondaki boşlukları temizledim
 print(ulke.value_counts().head(10))
+
+ulkeOn = ulke.value_counts().head(10)
+plt.figure(figsize=(10,5)) #yeni figure oluşturur eskiyi temizler
+ulkeOn.plot(kind="bar")
+plt.title("Netflix'te En Çok İçerik Üreten 10 Ülke")
+plt.show()
+
