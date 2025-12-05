@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("netflix_titles.csv")
 dataframe = pd.DataFrame(df)
@@ -18,7 +19,12 @@ df["country"] = df["country"].fillna("Unknown")
 df["date_added"] = df["date_added"].fillna("Unknown")
 df["rating"] = df["rating"].fillna("Unknown")
 df["duration"] = df["duration"].fillna("Unknown")
-print(df.isna().sum())
+df.isna().sum()
 
-print(df["type"].value_counts())
+df["type"].value_counts()
+
+fdsayisi= df["type"].value_counts()
+fdsayisi.plot(kind="bar")
+plt.title("Film vs TV Show Sayıları")
+plt.show()
 
