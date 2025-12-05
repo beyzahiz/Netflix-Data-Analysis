@@ -19,3 +19,6 @@ df["date_added"] = df["date_added"].fillna("Unknown")
 df["rating"] = df["rating"].fillna("Unknown")
 df["duration"] = df["duration"].fillna("Unknown")
 print(df.isna().sum())
+
+print(df["type"].value_counts())
+
