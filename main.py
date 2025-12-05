@@ -33,3 +33,7 @@ turler = turler.str.split(",") #virgül ile türleri ayırdım
 turler = turler.explode() #alt alta yazıldı
 print(turler.value_counts().head(10))
 
+on = turler.value_counts().head(10)
+on.plot(kind="bar")
+plt.title("Netflix'te En Popüler 10 Tür")
+plt.show()
