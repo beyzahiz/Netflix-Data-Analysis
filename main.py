@@ -52,10 +52,24 @@ ulkeOn.plot(kind="bar")
 
 #Yıllara göre içerik trendleri
 yillar = df["release_year"].value_counts().sort_index()
-plt.figure(figsize=(12,5))
+#plt.figure(figsize=(12,5))
 yillar.plot(kind="line")
-plt.title("Yıllara Göre Netflix İçerik Üretimi")
-plt.xlabel("Yıl")
-plt.ylabel("İçerik Sayısı")
-plt.show()
+#plt.title("Yıllara Göre Netflix İçerik Üretimi")
+#plt.xlabel("Yıl")
+#plt.ylabel("İçerik Sayısı")
+#plt.show()
+
+#İçerik süresi analizi
+filmler = df[df["type"] == "Movie"] #filmler seçilir
+filmler_temiz = filmler[filmler["duration"] != "Unknown"].copy() #unknown olanlar çıkarılır
+filmler_temiz.loc[:,"duration_clean"] = (
+    filmler_temiz["duration"].str.replace(" min", "").astype(int)
+) #min silinir ve inte çevrilir
+print(filmler_temiz[["duration", "duration_clean"]].head(10))
+
+print("Ortalama film süresi:",filmler_temiz["duration_clean"].mean())
+print("En kısa film süresi:", filmler_temiz["duration_clean"].min())
+print("En uzun film süresi: ",filmler_temiz["duration_clean"].max())
+
+
 
