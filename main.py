@@ -82,3 +82,14 @@ diziler = df[df["type"]== "TV Show"]
 diziler["duration"].head(20)
 diziler_temiz = diziler["duration"].str.replace(" Seasons", "").str.replace(" Season", "").astype(int)
 print(diziler_temiz.head(10))
+
+print("Ortalama dizi sezon süresi: ",diziler_temiz.mean())
+print("En kısa dizi sezon süresi: ",diziler_temiz.min())
+print("En uzun dizi sezon süresi: ",diziler_temiz.max())
+
+plt.figure(figsize=(10,5))
+diziler_temiz.plot(kind="hist", color="purple")
+plt.title("Netflix Dizilerinde Sezon Sayısı Dağılımı")
+plt.xlabel("Sezon Sayısı")
+plt.ylabel("Dizi Sayısı")
+plt.show()
