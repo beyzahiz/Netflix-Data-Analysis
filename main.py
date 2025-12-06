@@ -71,5 +71,10 @@ print("Ortalama film süresi:",filmler_temiz["duration_clean"].mean())
 print("En kısa film süresi:", filmler_temiz["duration_clean"].min())
 print("En uzun film süresi: ",filmler_temiz["duration_clean"].max())
 
-
+plt.figure(figsize=(10,5))
+filmler_temiz["duration_clean"].plot(kind="hist")
+plt.title("Netflix Film Süresi Dağılımı")
+plt.xlabel("Film Süresi(Dakika)")
+plt.ylabel("Frekans")
+plt.show()
 
