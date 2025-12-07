@@ -1,3 +1,9 @@
+"""
+Netflix Veri Analizi Projesi
+Bu script Netflix veri seti üzerinde veri temizleme, dönüştürme ve görselleştirme işlemlerini içerir.
+
+"""
+
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
